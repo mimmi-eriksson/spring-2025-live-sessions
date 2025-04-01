@@ -2,7 +2,8 @@
 :root {
   --primary-color: #2c3e50;
   --background-color: #ffffff;
-  --accent-color: #0040a3; /* Darker blue for better contrast */
+  --accent-color: #0040a3;
+  /* Darker blue for better contrast */
   --error-color: #e74c3c;
   --success-color: #27ae60;
   --focus-outline: 3px solid var(--accent-color);
@@ -97,6 +98,7 @@ body {
 .quiz-progress {
   margin: 2rem 0;
 }
+
 /* Images */
 .decorative-image,
 .info-image {
@@ -185,13 +187,13 @@ input[type='radio'] {
   height: 20px;
 }
 
-input[type='radio']:focus-visible + label {
+input[type='radio']:focus-visible+label {
   outline: var(--focus-outline);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
-input[type='radio'] + label {
+input[type='radio']+label {
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 4px;
@@ -803,9 +805,11 @@ footer {
   footer {
     padding-bottom: 4rem;
   }
+
   .footer-info {
     margin-bottom: 10rem;
   }
+
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -818,6 +822,7 @@ footer {
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+
   .accordion-button,
   .accordion-icon,
   .accordion-icon::before,

@@ -1,14 +1,144 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leave feedback</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <p>This is the starting point.</p>
+<html lang="en">
 
-    <script src="js/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Leave feedback</title>
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  />
+</head>
+
+<body>
+  <a
+    href="#main-content"
+    class="skip-link"
+  >Skip to main content</a>
+  <header id="header">
+    <div class="header-content">
+      <h1>Website feedback</h1>
+      <nav
+        role="navigation"
+        aria-label="main menu"
+      >
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section
+      id="banner"
+      role="banner"
+    >
+      <img
+        src="./assets/banner.jpg"
+        alt=""
+        role="presentation"
+      >
+    </section>
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>We value your feedback! Help us improve our website by sharing your experience.</p>
+      <div class="form-controls intro-section">
+        <button
+          id="intro-continue"
+          type="button"
+          class="submit-button"
+        >Continue</button>
+      </div>
+    </section>
+
+    <section
+      id="user-info"
+      hidden
+    >
+      <h2>Your Information</h2>
+      <form id="user-info-form">
+        <div class="form-control">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            aria-required="true"
+            aria-describedby="name-error"
+            placeholder="Example: John Doe"
+          />
+          <div
+            id="name-error"
+            class="error"
+            role="alert"
+            hidden
+          ></div>
+        </div>
+        <div class="form-control">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            aria-required="true"
+            aria-describedby="email-hint email-error"
+            placeholder="Example: name@example.com"
+          >
+          <div
+            id="email-hint"
+            class="hint"
+          >Example: name@example.com</div>
+          <div
+            id="email-error"
+            class="error"
+            role="alert"
+            hidden
+          ></div>
+        </div>
+        <div class="form-control">
+          <button
+            type="submit"
+            class="submit-button"
+          >Continue to feedback</button>
+        </div>
+      </form>
+    </section>
+    <div
+      id="announcer"
+      class="visually-hidden"
+      aria-live="polite"
+    ></div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <nav
+        role="navigation"
+        aria-label="footer menu"
+      >
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
 </html>

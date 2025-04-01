@@ -1,36 +1,116 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - Website Feedback</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <div id="header">
-      <h1>About Us</h1>
-      <nav>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>About - Website Feedback</title>
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  />
+</head>
+
+<body>
+  <a
+    href="#main-content"
+    class="skip-link"
+  >Skip to main content</a>
+  <header id="header">
+    <div class="header-content">
+      <h1>Website feedback</h1>
+      <nav
+        role="navigation"
+        aria-label="main menu"
+      >
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
         </ul>
       </nav>
     </div>
-    <div id="main-content">
-      <section id="about">
-        <h2>About Our Website Feedback Initiative.</h2>
-        <p>
-          We are committed to making our website accessible to everyone. Your
-          feedback helps us improve and create a better experience for all
-          users.
-        </p>
-        <div class="hero-images">
-          <img
-            src="assets/accessibility-image.png"
-            alt="Accessibility illustration"
-          />
+  </header>
+
+  <main id="main-content">
+    <section id="about">
+      <h2>About Our Website Feedback Initiative.</h2>
+      <p>
+        We are committed to making our website accessible to everyone. Your
+        feedback helps us improve and create a better experience for all
+        users.
+      </p>
+      <div class="hero-images">
+        <img
+          src="assets/accessibility-image.png"
+          alt="Accessibility illustration"
+        />
+      </div>
+
+      <div class="accordion-item">
+        <h3>Accessibility Features</h3>
+        <div class="accordion">
+
+          <div class="accordion-item">
+            <h4>
+              <button
+                class="accordion-button"
+                aria-expanded="false"
+                aria-controls="content-1"
+              >
+                Screen Reader Compatibility
+                <span
+                  class="accordion-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </h4>
+            <div
+              id="content-1"
+              class="accordion-content"
+              hidden
+            >
+              <p>Our webside is fully compatible with screen readers.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h4>
+              <button
+                class="accordion-button"
+                aria-expanded="false"
+                aria-controls="content-2"
+              >
+                Keyboard Navigation
+                <span
+                  class="accordion-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </h4>
+            <div
+              id="content-2"
+              class="accordion-content"
+              hidden
+            >
+              <p>All interactive elements are accessible via keyboard navigation.</p>
+            </div>
+          </div>
+
         </div>
-      </section>
-    </div>
-  </body>
+
+      </div>
+
+    </section>
+  </main>
+
+  <script src="./js/accordion.js"></script>
+</body>
+
 </html>
