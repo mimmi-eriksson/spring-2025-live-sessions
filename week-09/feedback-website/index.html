@@ -113,6 +113,116 @@
         </div>
       </form>
     </section>
+
+    <section
+      id="feedback"
+      hidden
+    >
+      <h2>Share your experience</h2>
+      <div
+        class="quiz-progress"
+        role="status"
+        aria-live="polite"
+      >
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            style="width: 0%"
+          ></div>
+        </div>
+        <p class="progress-text">0 of 4 questions answered</p>
+      </div>
+
+      <div
+        class="quiz-instructions"
+        role="group"
+        aria-labelledby="instructions-heading"
+      >
+        <h3 id="instructions-heading">Instructions</h3>
+        <p>Use tab to navigate between sections, space to select an option.</p>
+      </div>
+
+      <form id="feedback-form">
+
+        <fieldset>
+          <legend>Website navigation experience</legend>
+          <div
+            class="radio-group"
+            role="radiogroup"
+          >
+            <div class="radio-option">
+              <input
+                type="radio"
+                name="navigation"
+                value="easy"
+                id="nav-easy"
+              >
+              <label for="nav-easy">Easy to navigate</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                name="navigation"
+                value="difficult"
+                id="nav-difficult"
+              >
+              <label for="nav-difficult">Difficult to navigate</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Content readability</legend>
+          <div
+            class="radio-group"
+            role="radiogroup"
+          >
+            <div class="radio-option">
+              <input
+                type="radio"
+                name="readability"
+                value="clear"
+                id="read-clear"
+              >
+              <label for="read-clear">Content is clear and easy to read</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                name="readability"
+                value="unclear"
+                id="read-unclear"
+              >
+              <label for="read-unclear">Content is unclear and difficult to read</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-controls">
+          <button
+            type="submit"
+            class="submit-button"
+            aria-describedby="submit-description"
+          >Submit feedback</button>
+          <p
+            id="submit-description"
+            class="visually-hidden"
+          >Click to submit your feedback and see the summary</p>
+        </div>
+
+      </form>
+    </section>
+
+    <section
+      id="results"
+      aria-live="polite"
+      hidden
+    >
+      <h2>Thank you</h2>
+      <div id="results-content"></div>
+      <div class="feedback-details"></div>
+    </section>
+
     <div
       id="announcer"
       class="visually-hidden"

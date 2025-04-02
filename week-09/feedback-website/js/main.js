@@ -79,13 +79,100 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isValid) {
       userName = nameInput.value.trim()
       userInfoSection.hidden = true
-
+      feedbackSection.hidden = false
+      feedbackSection.scrollIntoView({ behaviour: 'smooth' })
+      document.querySelector('#feedback-form input[type:"radio"]').focus()
       announcer.textContent = 'Moved to feedback form section' //announce to the screen reader
-
     }
-
   })
 
+  const feedbackSection = document.getElementById('feedback')
+  const resultsSection = document.getElementById('results')
+
+  const form = document.getElementById('feedback-form')
+  const resultsContent = document.getElementById('results-content')
+  const feedbackDetails = document.querySelector('.feedback-details')
+  const progressFill = document.querySelector('.progress-fill')
+  const progressText = document.querySelector('.progress-text')
+
+  let answeredQuestions = new Set()
+
+  const updateProgress = () => {
+    const totalQuestions = 2
+    const answeredCount = answeredQuestions.size
+    const percentage = (answeredCount / totalQuestions) * 100
+
+    progressFill.style.width = `${percentage}%`
+    progressText.textContent = `${answeredCount} of ${totalQuestions} sections completed`
+    announcer.textContent = `${answeredCount} of ${totalQuestions} sections completed`
+  }
+
+  form.querySelectorAll('input[type="radio"]').forEach((radio) => {
+    radio.addEventListener('change', () => {
+      const questionName = radio.name
+      answeredQuestions.add(questionName)
+      updateProgress()
+    })
+  })
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const formData = new FormData(form)
+    const userAnswers = Object.fromEntries(formData)
+
+    let feedback = `Thank you for your feedback, ${userName}. `
+
+    const detailedFeedback = []
+
+    if (userAnswers.navigation === 'easy') {
+      detailedFeedback.push('✓ Navigation: You found the site easy to navigate')
+    } else if (userAnswers.navigation === 'difficult') {
+      detailedFeedback.push('! Navigation: You found the site difficult to navigate')
+    }
+
+    if (userAnswers.readability === 'clear') {
+      detailedFeedback.push('✓ Readability: The content is clear and readable')
+    } else if (userAnswers.readability === 'unclear') {
+      detailedFeedback.push('! Readability: The content need improvement')
+    }
+
+    const positiveAnswers = ['easy', 'clear']
+
+    const userAnswersValues = Object.values(userAnswers)
+
+    let positiveResponses = 0
+
+    for (const answer of userAnswersValues) {
+      if (positiveAnswers.includes(answer)) {
+        positiveResponses += 1
+      }
+    }
+
+    const totalResponses = Object.keys(userAnswers).lenght
+
+    const satisfactionPercentage = Math.round((positiveResponses / totalResponses) * 100)
+
+    feedback += `Based on your responses, you seem ${satisfactionPercentage}% with our website.`
+
+    feedback +=
+      positiveResponses >= totalResponses / 2
+        ? 'Thank you for your positive feedback'
+        : 'We will work hard to improve'
+
+    feedbackSection.hidden = true
+    resultsSection.hidden = false
+
+    resultsContent.textContent = feedback
+
+    feedbackDetails.innerHTML = detailedFeedback.map((text) => `<p>${text}</p>`).join()
+
+    resultsSection.setAttribute('tabindex', -1)
+    resultsSection.focus()
+
+    announcer.textContent = 'Feedback submitted. Your results are now desplayed.'
+
+  })
 
 
 })
